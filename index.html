@@ -24,7 +24,12 @@
             <span class="error">Darbuotojų skaičius negali būti neigiamas.</span>
         </div>
         <div class="input-wrapper">
-            <label for="loaves-per-employee">Duonos kepalų per dieną (vienas darbuotojas):</label>
+            <label for="hours-per-day">Darbo valandų per dieną:</label>
+            <input type="number" min="0" max="24" step="1" value="8" id="hours-per-day">
+            <span class="error">Valandų skaičius turi būti tarp 0 ir 24.</span>
+        </div>
+        <div class="input-wrapper">
+            <label for="loaves-per-employee">Duonos kepalų per valandą (vienas darbuotojas):</label>
             <input type="number" min="0" step="1" value="0" id="loaves-per-employee">
             <span class="error">Kepalų kiekis negali būti neigiamas.</span>
         </div>
