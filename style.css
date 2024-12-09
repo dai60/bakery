@@ -38,8 +38,11 @@ h1, h2, h3, h4, h4, h5, h6 {
     box-sizing: border-box;
 }
 
-.info-wrapper button {
+.info-wrapper button:not(:disabled) {
     cursor: pointer;
+}
+
+.info-wrapper button {
     padding: 5px 10px;
 }
 

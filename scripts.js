@@ -31,13 +31,24 @@ document.getElementById("reset").addEventListener("click", function () {
     document.getElementById("results").innerHTML = "<p>Kol kas nieko nėra.</p>";
 });
 
+function validateInput(element) {
+    const value = element.valueAsNumber;
+    if (isNaN(value)) {
+        return false;
+    }
+
+    const min = parseInt(element.min);
+    const max = parseInt(element.max);
+    return !((!isNaN(min) && value < min) || (!isNaN(max) && value > max));
+}
+
 document.querySelectorAll("input").forEach(function (element) {
     element.addEventListener("input", function (event) {
         const value = event.target.valueAsNumber;
         const min = parseInt(event.target.min);
         const max = parseInt(event.target.max);
 
-        if ((!isNaN(min) && value < min) || (!isNaN(max) && value > max)) {
+        if (!validateInput(event.target)) {
             event.target.classList.add("error");
             event.target.nextElementSibling.classList.add("show");
         }
@@ -45,5 +56,8 @@ document.querySelectorAll("input").forEach(function (element) {
             event.target.classList.remove("error");
             event.target.nextElementSibling.classList.remove("show");
         }
+
+        const allValid = Array.from(document.querySelectorAll("input")).every(element => validateInput(element));
+        document.getElementById("calculate").disabled = !allValid;
     });
 });
