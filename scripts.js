@@ -44,10 +44,6 @@ function validateInput(element) {
 
 document.querySelectorAll("input").forEach(function (element) {
     element.addEventListener("input", function (event) {
-        const value = event.target.valueAsNumber;
-        const min = parseInt(event.target.min);
-        const max = parseInt(event.target.max);
-
         if (!validateInput(event.target)) {
             event.target.classList.add("error");
             event.target.nextElementSibling.classList.add("show");
