@@ -25,6 +25,28 @@ document.getElementById('employee-count').addEventListener('keyup', function (ev
     }
 })
 
+document.getElementById('loaves-per-employee').addEventListener('keyup', function (event) {
+    let inputValue = event.target.valueAsNumber
+    if (inputValue < 0) {
+        event.target.classList.add('error')
+        event.target.nextElementSibling.classList.add('show')
+    } else {
+        event.target.classList.remove('error')
+        event.target.nextElementSibling.classList.remove('show')
+    }
+})
+
+document.getElementById('order-count').addEventListener('keyup', function (event) {
+    let inputValue = event.target.valueAsNumber
+    if (inputValue < 0) {
+        event.target.classList.add('error')
+        event.target.nextElementSibling.classList.add('show')
+    } else {
+        event.target.classList.remove('error')
+        event.target.nextElementSibling.classList.remove('show')
+    }
+})
+
 document.getElementById('reset').addEventListener('click', function () {
     document.getElementById('employee-count').valueAsNumber = 0
     document.getElementById('loaves-per-employee').valueAsNumber = 0
