@@ -23,10 +23,10 @@ document.getElementById("calculate").addEventListener("click", function () {
 });
 
 document.getElementById("reset").addEventListener("click", function () {
-    document.getElementById("employee-count").valueAsNumber = 0;
-    document.getElementById("hours-per-day").valueAsNumber = 8;
-    document.getElementById("loaves-per-employee").valueAsNumber = 0;
-    document.getElementById("order-count").valueAsNumber = 0;
+    document.querySelectorAll("input").forEach(function (element) {
+        element.value = element.defaultValue;
+        element.dispatchEvent(new Event("input"));
+    });
 
     document.getElementById("results").innerHTML = "<p>Kol kas nieko nėra.</p>";
 });
