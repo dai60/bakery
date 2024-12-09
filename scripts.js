@@ -60,4 +60,11 @@ document.querySelectorAll("input").forEach(function (element) {
         const allValid = Array.from(document.querySelectorAll("input")).every(element => validateInput(element));
         document.getElementById("calculate").disabled = !allValid;
     });
+
+    element.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("calculate").click();
+        }
+    });
 });
